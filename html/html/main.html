@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+    </head>
+	<!--
+		如果使用frameset 需要将body标签取掉
+			cols : 按列划分页面
+			rows : 按行划分页面
+	-->
+    <frameset  rows="15%,*">
+        <frame src="nav.html" />   
+        <frameset cols="15%,*">
+            <frame src="select.html"/>
+            <frame src="show.html" name="rightFrame" />
+        </frameset>
+    </frameset>
+</html>

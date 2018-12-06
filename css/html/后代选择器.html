@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        h1 > em > strong{
+            color: red;
+        }
+        h2 strong{
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <!--后代选择器:  爷爷 孙子   中间以空格隔开-->
+    <!--​	子元素选择器:  爸爸 > 儿子-->
+<h1>
+        这是一个简单的测试
+        <em>这是在em下的一个简单的测试
+            <strong>
+                这是在strong下的简单测试
+                <em>这是在strong下的em中的简单测试</em>
+            </strong>
+        </em>
+    </h1>
+    <br />
+    <h2>
+        这是一个简单的测试
+        <em>这是在em下的一个简单的测试
+            <strong>
+                这是在strong下的简单测试
+                <em>这是在strong下的em中的简单测试</em>
+            </strong>
+        </em>
+    </h2>
+</body>
+</html>
