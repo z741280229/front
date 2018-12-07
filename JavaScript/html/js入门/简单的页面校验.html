@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>简单的页面校验</title>
+    <script>
+        function checkIn() {
+            var username = document.getElementById("username");
+            var password = document.getElementById("pwd");  
+            var email = document.getElementById("email");
+            if(username.value.length >= 6){
+                
+            }else{
+                alert("你输入的用户名太短了")
+                return false;
+            }
+
+            var uEmail = email.value;
+            if(/^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$/.test(uEmail)){
+                alert("校验成功")
+              
+            }else{
+                alert("校验失败");
+                return false
+            }
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <form action="../../../css/html/网站首页优化.html" onsubmit="return checkIn()">
+        <input type="text" name="username" id="username"><br/>
+        <input type="password" name="password" id="pwd"><br/>
+        <input type="text" name="email" id="email"><br/>
+        <input type="submit" value="提交">
+    </form>
+</body>
+</html>

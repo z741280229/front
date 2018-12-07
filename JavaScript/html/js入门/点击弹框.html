@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>点击弹框</title>
+     <!--
+			1. 确定事件  点击事件
+			2. 通常事件都会出发一个函数
+			3. 函数里面通常都会去操作页面元素,做一些交互动作
+	-->
+    <script>
+        function hit(){
+            var div1 = document.getElementById("div1");
+            div1.innerHTML = "<font>内容被修改了</font>"
+            // div1.innerText = "<font color='red'>内容被替换掉了</font>";
+        }      
+    </script>
+</head>
+<body>
+    <input type="button" value="点击我弹框" onclick="hit()">
+    <div id="div1">
+        事件被触发
+    </div>
+</body>
+</html>
