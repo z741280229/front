@@ -5,10 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>切换图片</title>
+    <script>
+        function changImg(){
+            var cimg = document.getElementById("img1")
+            cimg.src = "../../src/2.jpg"
+        }
+    </script>
 </head>
 <body>
     <input type="button" value="点击切换图片" onclick="changImg()">
     <br />
-    
+    <img src="../../src/1.jpg" id="img1">
 </body>
 </html>
