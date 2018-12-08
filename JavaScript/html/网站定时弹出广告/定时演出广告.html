@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>定时弹出广告</title>
+    <script>
+        
+        // //页面加载初始化
+        // function init(){
+        //     window.setInterval("showAd()",2000)
+            
+        // }
+
+        // //显示广告
+        // function showAd(){
+        //     var img = document.getElementById("img1")
+        //     img.style.display = "block"
+        // }
+
+        // //隐藏广告
+        // function hideAd(){
+        //     var img = document.getElementById("img1")
+        //     img.style.display = "none"
+        // }
+
+        function init() {
+            //设置显示广告图片的定时操作
+            time = setInterval("showAd()", 2000);
+        }
+
+        function showAd() {
+            //获取广告图片的位置
+            var adEle = document.getElementById("img2");
+            //修改广告图片元素里面的属性让其显示
+            adEle.style.display = "block";
+            //清除显示图片的定时操作
+            clearInterval(time);
+            //设置隐藏图片的定时操作
+            time = setInterval("hiddenAd()", 2000);
+        }
+
+        //隐藏广告图片的函数
+        function hiddenAd() {
+            //获取广告图片并设置其style属性的display值为none
+            document.getElementById("img2").style.display = "none";
+            //清除隐藏广告图片的定时操作
+            clearInterval(time);
+        }
+        
+
+    </script>
+</head>
+<body onload="init()">
+    <img src="../../src/1.jpg" id="img2">
+</body>
+</html>
