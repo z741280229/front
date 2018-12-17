@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JQ和JS对象之间的转换</title>
+    <script type="text/javascript" src="../../js/jquery-1.11.0.js"></script>
+    <script>
+        function jsToJq(){
+            var div = document.getElementById("div1")
+            //div.innerHTML = "内容被js修改"
+            //$(div).html = "内容被js转成JQ修改"
+            $(div).html("内容被js转成JQ修改")
+        }
+        //给按钮绑定事件
+        $(function(){  // ???
+            $("#btn").click(function(){
+                // $("#div1").html("内容被JQ修改")
+                //将JQ对象转成JS对象来调用
+                var $div = $("#div1")
+                var jsDiv =  $div[0]
+                jsDiv.innerHTML = "jQ转js成功"
+            });   
+        });
+       
+    </script>
+</head>
+<body>
+    <input type="button" value="JS修改div中的内容" onclick="jsToJq()">
+    <input type="button" value="JQ修改div中的内容" id="btn">
+    <div id="div1">
+        内容
+    </div>
+</body>
+</html>

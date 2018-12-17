@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JQ遍历</title>
+    <script type="text/javascript" src="../../js/jquery-1.11.0.js"></script>
+    <script>
+        var cities = ["深圳市","东莞市","惠州市","广州市"];
+        $(function(){
+            //No.1
+            // $(cities).each(function(i,n){
+            //     console.log(this)
+            // })
+
+            //  $(cities).each(function(i,n){
+            //     console.log(i+"-----"+n)
+            // })
+
+            //No.2
+            // function show(i,n){
+            //     console.log(i+"-----"+n)
+            // }
+            // $.each(cities,show)
+
+            //No.3
+            function callback(i,n){
+                console.log(i+"------"+n)
+            }
+
+            function iterator(city,callback){
+                for(var i = 0; i < city.length; i++){
+                    callback(i,city[i])
+                }
+            }
+
+            iterator(cities,callback)
+        })
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

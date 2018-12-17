@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>网页定时显示广告</title>
+    <!--
+			1. 导入JQ的文件
+			2. 编写JQ的文档加载事件
+			3.  启动定时器 setTimeout("",3000);
+			4. 编写显示广告的函数
+			5. 在显示广告里面再启动一个定时器
+			6. 编写隐藏广告的函数
+    -->
+    <script type="text/javascript" src="../../js/jquery-1.11.0.js"></script>
+    <script>
+        //显示广告
+        function showAd(){
+            alert("11111111111")
+            $("#photo").slideDown(1000)
+            alert("22222222222")
+            setTimeout("hideAd()",10000)
+            alert("33333333333")
+        }
+
+        //隐藏广告
+        function hideAd(){
+            alert("44444444444")
+            $("#photo").slideUp(1000)
+            alert("5555555555")
+        }
+
+        $(function(){
+            alert("6666666666")
+            setTimeout("showAd()",10000)
+            alert("77777777")
+        })
+    </script>
+</head>
+<body>
+    <img src="../../src/1-161104143944.gif" id="photo">
+</body>
+</html>
