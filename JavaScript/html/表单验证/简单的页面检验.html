@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>简单的页面校验</title>
+    <script>
+        
+        function checkIn(){
+            var flag =  checkUser()
+            return flag
+        }
+        function showTip(userId,msg){
+            var userId = document.getElementById(userId)
+            userId.innerHTML = msg;
+           
+        }
+        function checkUser(){
+            var username = document.getElementById("username");     
+            var userLength = document.getElementById("userLength")
+            if(username.value.length < 6){
+                userLength.innerHTML = "<font style='color:red'>太短，不够使用</font>"
+                return false
+            }else{
+                userLength.innerHTML = "恭喜，够用"
+                return true
+            }
+        }
+    </script>
+</head>
+<body>
+    <form action="../../../css/html/网站首页优化.html" onsubmit="return checkIn()">
+        用户名：<input type="text" name="username" id="username" onblur="checkUser()" onfocus="showTip('userLength','你输入的用户名太短了')"><span id="userLength"></span><br/>
+        <input type="submit" value="注册" >
+    </form>
+</body>
+</html>

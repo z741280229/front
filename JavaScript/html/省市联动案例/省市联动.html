@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>省市联动</title>
+    <script>
+        var provinces = [
+				["深圳市","东莞市","惠州市","广州市"],
+				["长沙市","岳阳市","株洲市","湘潭市"],
+				["厦门市","福州市","漳州市","泉州市"]
+            ];
+            /*
+				1. 确定事件:  onchange
+				2. 函数: selectProvince()
+				3. 函数里面要搞事情了
+					得到当前操作元素
+					得到当前选中的是那一个省份
+					从数组中取出对应的城市信息
+					
+					动态创建城市元素节点
+					添加到城市select中
+					
+			*/
+        function selectProvince(){
+            var province = document.getElementById("provice")
+            //alert(province.value)
+            value = province.value
+            var cities = provinces[value]
+
+            var selectCity = document.getElementById("city")
+            
+            selectCity.options.length = 0
+            for(var i = 0; i < cities.length; i++){
+                //alert(cities[i])
+                var cityText = cities[i]
+                var option1 = document.createElement("option")
+                var textNode = document.createTextNode(cityText)
+                option1.appendChild(textNode)
+                selectCity.appendChild(option1)
+            }
+            
+        }
+    </script>
+</head>
+<body>
+    <select onchange="selectProvince()" id="provice">
+        <option value="-1">请选择</option>
+        <option value="0">广东省</option>
+        <option value="1">湖南省</option>
+        <option value="2">福建省</option>
+    </select>
+    <select id="city">
+        <option>请选择</option>
+    </select>
+</body>
+</html>

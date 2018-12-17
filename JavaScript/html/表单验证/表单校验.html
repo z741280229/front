@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>表单校验</title>
+    <script type="text/javascript" src="../../js/regutils.js"></script>
+    <script>
+        function showTip(user_Id,msg){
+            var userId =  document.getElementById(user_Id)
+            userId.innerHTML = msg
+        }  
+        //校验用户名
+        function checkUser(){
+            var username = document.getElementById("username")
+            var span = document.getElementById("user_len")
+            if(username.value.length < 6){
+                span.innerHTML = "对不起，长度不够"
+                return false
+            }else{
+                span.innerHTML = "恭喜够用"
+                return true
+            }
+        }
+        
+        //校验密码
+        function checkPass(){
+            var password = document.getElementById("password")
+            var span = document.getElementById("pass_len")
+            if(password.value.length < 6){
+                span.innerHTML = "对不起，长度不够"
+                return false
+            }else{
+                span.innerHTML = "恭喜够用"
+                return true
+            }
+        }
+        
+        function recheckPass(){
+            var password = document.getElementById("password").value
+            var repassword = document.getElementById("repassword").value
+            var span = document.getElementById("repass_len")
+            if(password != repassword){
+                span.innerHTML = "两次输入不正确"
+                return false
+            }else{
+                span.innerHTML = "验证合格"
+                return true
+            }
+        }
+        function check_Email(){
+            var email = document.getElementById("email").value
+            var span = document.getElementById("email_char")
+            var flag = checkEmail(email)
+            if(flag){
+                span.innerHTML = "合法"
+                return true
+            }else{
+                span.innerHTML = "输入的邮箱不合法"
+                return false
+            }
+        }
+        function checkForm(){
+            var flag  = checkUser() && checkPass() && recheckPass() && check_Email()    
+            return flag
+        }
+    </script>
+</head>
+<body>
+    <form action="../../../css/html/网站首页优化.html" onsubmit="return checkForm()">
+        用户名:<input type="text" name="username" id="username" onblur="checkUser()" onfocus="showTip('user_len','输入的用户名不能小于6位')"><span id="user_len"></span><br/>
+        密码：<input type="password" name="password" id="password" onblur="checkPass()" onfocus="showTip('pass_len','输入的密码不能小于6位')"><span id="pass_len"></span><br/>
+        确认密码:<input type="password" name="repassword" id="repassword" onblur="recheckPass()" onfocus="showTip('repass_len','请验证密码')"><span id="repass_len"></span><br/>
+        邮箱：<input type="text" name="email" id="email" onblur="check_Email()" onfocus="showTip('email_char','请输入邮箱')"><span id="email_char"></span><br/>
+        电话号码:<input type="text" name="phone" id="phone"><br/>
+        <input type="submit" value="注册">
+    </form>
+</body>
+</html>
